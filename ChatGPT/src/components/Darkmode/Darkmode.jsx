@@ -19,12 +19,12 @@ function Darkmode () {
 
   return(
     <>
-
+    <button className="darkmodebtn"><IoSend /></button>
     <button className="darkmodebtn" onClick={()=>toggle()}>
       {mode === 'dark-mode' && <IoIosSunny />}
       {mode === 'light-mode' && <FaRegMoon />}
     </button>
-    <button className="darkmodebtn"><IoSend /></button>
+    
     </>
   )
 }

@@ -43,5 +43,19 @@
   opacity: 0.8;
 }
 .bottomsection{
-  
+  display: flex;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.bottomsection input{
+  height: 45px;
+  width: 50%;
+  border-radius: 8px;
+  border: none;
+  padding: 20px;
+  color:var(--btn-color);
+  background-color: var(--btn-background-color);
 }
