@@ -6,7 +6,7 @@
 .topsection{
   width: 100%;
   height: 75vh;
-  background-color: aquamarine;
+  
 }
 .bottomsection{
   width: 100%;
@@ -21,4 +21,27 @@
   justify-content: center;
   flex-direction: column;
   font-size: 2vmax;
+}
+.headings span:nth-child(1){
+  font-size: 4em;
+  font-weight: 500;
+  background:linear-gradient(to right,rgb(222,19,101),rgb(89,190,215),white);
+  background-clip: text;
+  color: transparent;
+}
+.headings span:nth-child(2){
+  font-size: 2.9em;
+  font-weight: 500;
+  background:linear-gradient(to right,rgb(222,19,101),rgb(89,190,215),white);
+  background-clip: text;
+  color: transparent;
+}
+.headings span:nth-child(3){
+  font-size: 1.5em;
+
+  color:var(--color);
+  opacity: 0.8;
+}
+.bottomsection{
+  
 }

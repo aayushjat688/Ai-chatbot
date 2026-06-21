@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { IoIosSunny } from "react-icons/io";
 import { FaRegMoon } from "react-icons/fa";
+import { IoSend } from "react-icons/io5";
 import './Darkmode.css'
 function Darkmode () {
   const [mode , setMode] = useState("dark-mode");
@@ -17,10 +18,14 @@ function Darkmode () {
  },[mode])
 
   return(
+    <>
+
     <button className="darkmodebtn" onClick={()=>toggle()}>
       {mode === 'dark-mode' && <IoIosSunny />}
       {mode === 'light-mode' && <FaRegMoon />}
     </button>
+    <button className="darkmodebtn"><IoSend /></button>
+    </>
   )
 }
 export default Darkmode;
