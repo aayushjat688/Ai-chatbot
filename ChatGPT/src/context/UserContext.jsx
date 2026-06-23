@@ -1,4 +1,4 @@
-import { createContext,useState } from "react";
+import { createContext,use,useState } from "react";
 import run from "../gemini";
 
 export const dataContext = createContext();
@@ -8,13 +8,15 @@ function UserContext ({children}) {
   const [showResult , setShowResult] = useState(false);
   const [loading , setLoading] = useState(false);
   const[resultData , setResultData] = useState("");
-
+  const [recentPromt , setRecentPromt] = useState("");
+  
 async function sent(prompt) {
   setShowResult(true);
   setLoading(true);
-  
+  setRecentPromt(input)
+  setInput("")
   let response = await run(prompt)
-
+  setLoading(false)
   setResultData(response);
 }
 
@@ -27,7 +29,8 @@ const data = {
   setLoading,
   setShowResult,
   resultData,
-  setResultData
+  setResultData,
+  recentPromt
 }
 
 

@@ -5,7 +5,7 @@ import { dataContext } from '../../context/UserContext';
 import user from '../../assets/user.png'
 import ai from '../../assets/ai.png'
 function ChatSection () {
-  const {input , setInput , showResult , resultData } = useContext(dataContext);
+  const {input , setInput , showResult , resultData , recentPromt , loading } = useContext(dataContext);
   return (
     <div className="chatsection">
 
@@ -19,11 +19,18 @@ function ChatSection () {
         : <div className='result'>
             <div className="userbox">
               <img src={user} width='80px' alt="" />
-              <p>{input}</p>
+              <p>{recentPromt}</p>
             </div>
             <div className="aibox">
               <img src={ai} width='80px' alt='' />
-              <p>{resultData}</p>
+              {loading ? <div className='loader'>
+                <hr />
+                <hr />
+                <hr />
+              </div>
+              : <p>{resultData}</p>
+              }
+              
             </div>
             
           </div>}
@@ -31,7 +38,7 @@ function ChatSection () {
        </div>
 
        <div className="bottomsection">
-        <input type="text" onChange={(e)=>setInput(e.target.value)} value={input}/>
+        <input type="text" placeholder='Enter a prompt' onChange={(e)=>setInput(e.target.value)} value={input}/>
         <Darkmode />
        </div>
 
