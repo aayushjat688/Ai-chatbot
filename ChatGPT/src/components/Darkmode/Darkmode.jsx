@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoIosSunny } from "react-icons/io";
 import { FaRegMoon } from "react-icons/fa";
 import { IoSend } from "react-icons/io5";
 import './Darkmode.css'
+import { dataContext } from "../../context/UserContext";
 function Darkmode () {
   const [mode , setMode] = useState("dark-mode");
 
@@ -17,9 +18,11 @@ function Darkmode () {
       document.body.className = mode;
  },[mode])
 
+ const {sent,input} = useContext(dataContext);
+
   return(
     <>
-    <button className="darkmodebtn"><IoSend /></button>
+    <button onClick={()=>sent(input)} className="darkmodebtn"><IoSend /></button>
     <button className="darkmodebtn" onClick={()=>toggle()}>
       {mode === 'dark-mode' && <IoIosSunny />}
       {mode === 'light-mode' && <FaRegMoon />}

@@ -1,21 +1,15 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const API_KEY = 'AIzaSyBxRmLHcNTSZ-LUIYqNEdzhFTKZgEwhxxc';
+ import { GoogleGenerativeAI } from "@google/generative-ai";
 
+const genAI = new GoogleGenerativeAI("AQ.Ab8RN6JzeOZwBqn7i1nUWTxFAmFRmEaIa4Lrvb1Rp6xN1wHsbA");
 
-const genAI = new GoogleGenerativeAI(API_KEY);
+async function run(promt) {
+  // Use one of the models from your list
+  const model = genAI.getGenerativeModel({ model: "models/gemini-2.5-flash" });
 
-async function runGemini(prompt) {
-
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-
-  const result = await model.generateContent(prompt);
-  
-
-  console.log(result.response.text());
-  
+  const result = await model.generateContent(promt);
+  return result.response.text()
 }
 
-export default runGemini;
+export default run;
 
